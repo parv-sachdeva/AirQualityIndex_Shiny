@@ -14,6 +14,7 @@ library(ggplot2)
 get_province_code_by_name <- function(name, tolower=TRUE) {
     provinces <- list(
         "ONTARIO"="ON",
+        "ALBERTA"="AB",
         "BRITISH COLUMBIA"="BC",
         "MANITOBA"="MB",
         "NEW BRUNSWICK"="NB",
@@ -85,7 +86,8 @@ ui <- page_sidebar(
     title = "Canadian Cities AQI Dashboard",
     selectInput(
       "province", "Select Province",
-      c("Ontario", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Nova Scotia", "Northwest Territories", "Nunavat", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon")
+      c("Ontario", "Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Nova Scotia", "Northwest Territories", "Nunavat", "Prince Edward Island", "Quebec", "Saskatchewan", "Yukon") %>% sort(),
+      selected = "Ontario"
     )
     # numericInput("bins", "Number of bins", 30)
   ),
